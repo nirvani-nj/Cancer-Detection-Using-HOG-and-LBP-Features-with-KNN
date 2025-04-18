@@ -1,87 +1,96 @@
 # Cancer-Detection-Using-HOG-and-LBP-Features-with-KNN
 
-Project Overview
+## Project Overview
+
 This project implements a cancer detection system using Histogram of Oriented Gradients (HOG) and Local Binary Pattern (LBP) features with K-Nearest Neighbors (KNN) classifiers. The goal is to classify histopathology images from the Histopathologic Cancer Detection dataset as cancerous (malignant) or non-cancerous (benign) using texture-based feature extraction and ensemble learning techniques.
 
-Dataset
+## Dataset
+
 The project uses the Histopathologic Cancer Detection dataset from Kaggle, which contains 220,025 training images of lymph node tissue. Each 96x96 pixel image is labeled as containing metastatic tissue (1) or not (0). For this implementation, we used a random sample of 10,000 images to balance computational efficiency with model performance.
 
-Key Features
-Dual Feature Extraction
+## Key Features
 
-HOG (Histogram of Oriented Gradients) - Captures gradient structures in images
+1. Dual Feature Extraction
 
-LBP (Local Binary Patterns) - Extracts texture patterns for classification
+  -> HOG (Histogram of Oriented Gradients) - Captures gradient structures in images
 
-Two KNN Classifiers
+  -> LBP (Local Binary Patterns) - Extracts texture patterns for classification
 
-One trained on HOG features
+2. Two KNN Classifiers
 
-One trained on LBP features
+  -> One trained on HOG features
 
-Feature Fusion Techniques
+  -> One trained on LBP features
 
-Weighted Voting - Combines predictions based on model confidence
+3. Feature Fusion Techniques
 
-Stacking Classifier - Uses logistic regression as a meta-model
+  -> Weighted Voting - Combines predictions based on model confidence
 
-Performance Evaluation
+  -> Stacking Classifier - Uses logistic regression as a meta-model
 
-Accuracy scores
+4. Performance Evaluation
 
-Confusion matrices
+  -> Accuracy scores
 
-ROC curves and AUC scores
+  -> Confusion matrices
 
-Results Comparison
+  -> ROC curves and AUC scores
+
+## Results Comparison
+
 Model	Accuracy	AUC Score
 HOG + KNN	53.6%	0.54
 LBP + KNN	72.6%	0.73
 Weighted Fusion	72.6%	0.73
 Stacking	59.0%	0.59
-Key Insights
-LBP performed significantly better than HOG (72.6% vs 53.6%)
 
-Fusion maintained LBP's performance but did not improve it
+## Key Insights
 
-Stacking underperformed, likely due to high correlation between models
+-> LBP performed significantly better than HOG (72.6% vs 53.6%)
 
-How It Works
-Load and Preprocess Images from dataset
+-> Fusion maintained LBP's performance but did not improve it
 
-Grayscale conversion
+-> Stacking underperformed, likely due to high correlation between models
 
-Random sampling for faster experimentation
+## How It Works
 
-Feature Extraction
+1. Load and Preprocess Images from dataset
 
-HOG: Computes gradient orientations
+  -> Grayscale conversion
 
-LBP: Encodes local texture patterns
+  -> Random sampling for faster experimentation
 
-Train KNN Models
+2. Feature Extraction
 
-Separate classifiers for HOG and LBP features
+  -> HOG: Computes gradient orientations
 
-Fusion and Evaluation
+  -> LBP: Encodes local texture patterns
 
-Weighted voting based on model confidence
+3. Train KNN Models
 
-Stacking with logistic regression
+  -> Separate classifiers for HOG and LBP features
 
-Future Improvements
-Hyperparameter tuning for KNN (optimal n_neighbors)
+4. Fusion and Evaluation
 
-Alternative fusion methods (e.g., neural networks)
+  -> Weighted voting based on model confidence
 
-Deep learning comparison (CNNs vs traditional features)
+  -> Stacking with logistic regression
 
-Better meta-learner for stacking (e.g., SVM, Random Forest)
+## Future Improvements
 
-Conclusion
+-> Hyperparameter tuning for KNN (optimal n_neighbors)
+
+-> Alternative fusion methods (e.g., neural networks)
+
+-> Deep learning comparison (CNNs vs traditional features)
+
+-> Better meta-learner for stacking (e.g., SVM, Random Forest)
+
+## Conclusion
+
 This project implemented HOG and LBP feature extraction techniques for cancer detection, trained KNN classifiers on each feature set, and explored prediction fusion through weighted averaging and stacking.
 
-Key Findings:
+### Key Findings:
 
 ->LBP Outperformed HOG – The LBP-based KNN achieved 72.6% accuracy, significantly better than HOG’s 53.6%, suggesting that LBP captures more discriminative texture patterns in this dataset.
 
