@@ -36,14 +36,6 @@ The project uses the Histopathologic Cancer Detection dataset from Kaggle, which
 
   -> ROC curves and AUC scores
 
-## Results Comparison
-
-Model	Accuracy	AUC Score
-HOG + KNN	53.6%	0.54
-LBP + KNN	72.6%	0.73
-Weighted Fusion	72.6%	0.73
-Stacking	59.0%	0.59
-
 ## Key Insights
 
 -> LBP performed significantly better than HOG (72.6% vs 53.6%)
